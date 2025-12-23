@@ -60,8 +60,21 @@ def extract_article_summary(articles):
     }
 
 
+def extract_inique_sources_taditional(articles):
+    sources = set()
+    for article in articles:
+        sources.add(article["source"]["name"])
+    return sources
+
+
+def extract_unique_sources(articles):
+    return set(article["source"]["name"] for article in articles)
+
+
 print(extract_titles_traditional(articles))
 print("=====")
 print(extract_titles(articles))
 print("=====")
 print(extract_article_summary(articles))
+print("== Fuentes unicas de los articulos ==")
+print(extract_inique_sources_taditional(articles))
